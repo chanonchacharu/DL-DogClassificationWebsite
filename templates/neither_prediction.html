@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Image Classifier</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .preview-image {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 30px;
+        }
+        .classifier-header {
+            background-color: #db9bd5; /* Background color */
+            color: #fff; /* Text color */
+            padding: 10px; /* Padding around the text */
+            border-radius: 15px; /* Rounded corners */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+        }
+    </style>
+</head>
+<body class="container mt-5">
+    <div class="center">
+        <h1 class="mb-4 classifier-header">Dog Image Classifier</h1>
+    </div>
+    <div class="center">
+        <h3>Image Preview</h3>
+        <p>The Prediction result is <strong> {{ race }} </strong></p>
+        {% if image_base64 %}
+            <img src="data:image/jpeg;base64, {{ image_base64 }}" alt="Uploaded Image" class="img-fluid preview-image">
+        {% else %}
+            <p>No image uploaded.</p>
+        {% endif %}
+        <p>
+            <h1><strong>What are you?</strong></h1>
+        </p>
+    </div>
+
+    <div class="center"><p></p><p></p></div>
+
+    <div class="center">
+        <h4 class="mb-4">Continue with Dog Classifier</h4>
+        <p>Please upload another image to see whether it is a dog or not!</p>
+        <p><strong>Remark:</strong>The predict button has been DISABLE unless you upload an image</p>
+        <form action="/upload" method="post" enctype="multipart/form-data" id="prediction-form">
+            <div class="input-group mb-3">
+                <input type="file" name="imagefile" class="form-control" id="inputGroupFile" onchange="togglePredictButton()">
+                <label class="input-group-text" for="inputGroupFile">Choose Image</label>
+            </div>
+            <!-- Add the 'disabled' attribute to initially disable the button -->
+            <button type="submit" class="btn btn-primary" id="predict-button" disabled>Predict Image</button>
+        </form>
+    </div>
+    
+    <script>
+        function togglePredictButton() {
+            const imageFile = document.getElementById('inputGroupFile').files[0];
+            const predictButton = document.getElementById('predict-button');
+            
+            // If an image is selected, enable the button; otherwise, disable it
+            if (imageFile) {
+                predictButton.removeAttribute('disabled');
+            } else {
+                predictButton.setAttribute('disabled', 'disabled');
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
