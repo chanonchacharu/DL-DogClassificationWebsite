@@ -12,6 +12,29 @@ One of the algorithm's weaknesses is its difficulty in distinguishing between do
 
 ## Web App using Flask
 
+Here are example of the interface that was developed to support the visualization and interaction with the dog classification model.
+
+<div align="center">
+    <img src="resource_dog/images/Screenshot 2567-01-01 at 16.53.44.png" style="height: 500px; width: auto;">
+</div>
+After uploading the image, the website displays the upload image before showing the prediction result for easier comparison.<br><br> 
+
+
+<div align="center">
+    <img src="resource_dog/images/Screenshot 2567-01-01 at 16.54.41.png" style="height: 500px; width: auto;">
+</div>
+In the source code, we set a threshold of 0.99 or 99 percent confidence for the algorithm to classify a dog as mix-breed or not. Meaning, the model has to be at least 99 certain that the input image is not mix-breed dog. The picture above shows the outcome where the algorithm found this dog to be a mix-breed.<br><br> 
+
+
+<div align="center">
+    <img src="resource_dog/images/Screenshot 2567-01-01 at 16.55.43.png" style="height: 500px; width: auto;">
+</div>
+In the case where the algorithm cannot detect neither human nor dog, it classified the object as "Alien"!. The above visualization demonstrates the specific respond for this particular case. <br><br> 
+
+
+Remark: For testing the model performance, we took the image from Google Image and Unplash (https://unsplash.com/photos/smiling-woman-holding-cheek-B4TjXnI0Y2c)
+
+
 ### System Description
 Utilizing web applications to showcase the outcomes of our prediction models through interactive, engaging, and user-friendly interfaces. This web application developed using Flask offers a seamless experience, making advanced analytics accessible to both experts and novices alike. 
 
