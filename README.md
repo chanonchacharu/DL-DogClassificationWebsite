@@ -2,6 +2,8 @@
 
 This study introduces a convolutional neural network (CNNs) model designed to recognize dog breeds from images and, intriguingly, determine which dog breed a human face resembles. Leveraging a dataset comprising 133 different dog categories and a substantial collection of 8,351 dog images, along with 13,233 human images, this model endeavors to provide both practical and entertaining outcomes. With 133 dog breeds in the dataset, each with unique characteristics, it's important to accurately recognize dogs and their breeds. In this report, we explore methods for identifying dog breeds using convolutional neural networks (CNNs). We compare our custom CNN design with a model created using a technique called transfer learning. To assess our approach, we also compare our CNN's performance to three established models: VGG16, VGG19, and ResNet-50. Our proposed model is a combination of ResNet-50 and VGG19, resulting in a model that excels in recognizing and classifying a wide range of dog breeds and identifying human faces that resemble them.
 
+---
+
 ## Proposed Algorithm for Humans and Dogs Classification
 
 ### Algorithm Strengths: 
@@ -9,6 +11,8 @@ As our proposed model is a combination of ResNet-50 and VGG19 algorithms, one of
 
 ### Algorithm Weakness: 
 One of the algorithm's weaknesses is its difficulty in distinguishing between dogs and humans in images that contain both species. When a picture includes both a dog and a human, the algorithm tends to prioritize dog detection and categorization. As a result, it may incorrectly report that it can detect a dog, even when a human is visible in the image. This limitation can lead to false positives in cases where the primary subject of interest is a human.
+
+---
 
 ## Web App using Flask
 
@@ -25,6 +29,10 @@ After uploading the image, the website displays the upload image before showing 
 </div>
 In the source code, we set a threshold of 0.99 or 99 percent confidence for the algorithm to classify a dog as mix-breed or not. Meaning, the model has to be at least 99 certain that the input image is not mix-breed dog. The picture above shows the outcome where the algorithm found this dog to be a mix-breed.<br><br> 
 
+<div align="center">
+    <img src="resource_dog/images/Screenshot 2567-01-02 at 12.19.37.png" style="height: 500px; width: auto;">
+</div>
+From the above example, the algorithm detects only human in the given image. Hence, it made the prediction that this is a human. As part of the additional requirement on this assignment, another prediction has to be made. The model predicts which dog breed closely resemble the person in question and output as support evidence.<br><br>
 
 <div align="center">
     <img src="resource_dog/images/Screenshot 2567-01-01 at 16.55.43.png" style="height: 500px; width: auto;">
@@ -34,6 +42,7 @@ In the case where the algorithm cannot detect neither human nor dog, it classifi
 
 Remark: For testing the model performance, we took the image from Google Image and Unplash (https://unsplash.com/photos/smiling-woman-holding-cheek-B4TjXnI0Y2c)
 
+---
 
 ### System Description
 Utilizing web applications to showcase the outcomes of our prediction models through interactive, engaging, and user-friendly interfaces. This web application developed using Flask offers a seamless experience, making advanced analytics accessible to both experts and novices alike. 
@@ -46,6 +55,7 @@ Furthermore, users can upload multiple images, though one at a time. There's no 
 
 Due to space limitation, we pivoted from Google Colab to Kaggle for our algorithm development, which offered more storage. While Kaggle restricts the creation of HTML templates, we designed the web application's interface locally, embedding placeholders for the model's results and the dog images. Post development, this template was pushed to GitHub, and subsequently cloned into Kaggle. To host the web application, we leveraged the ngrok API. For a seamless experience, please sign up with ngrok and use your API Token when running the application. Here are some of the snippets from our Dog Classification Web Application!
 
+---
 
 ## Conclusion 
 In summary, this paper has highlighted the performance disparities between a CNN model that we built from scratch and those developed through transfer learning: VGG16, VGG19 and ResNet-50, with the latter proving to be significantly more effective due to their ability to harness pre-trained network weights. However, the most important point of our study is our proposed model, a combination of ResNet-50 and VGG19, designed for dog breed classification, human detection, and the recognition of mixed breeds. This model distinguishes itself through its capacity to accurately detect dogs and humans, predict dog breeds, identify mixed breeds, and even discern humans, even when they sport dog accessories. The fusion of these capabilities makes our model a robust tool for a wide array of image recognition tasks.
